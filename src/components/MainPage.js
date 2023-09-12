@@ -4,8 +4,6 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Typography from '@mui/material/Typography';
 import Header from './header';
 
-
-
 const getRepos = async () => {
 	try {
 		const res = await fetch('https://api.github.com/search/repositories?q=stars:%3E30000&per_page=100')
@@ -18,8 +16,8 @@ const getRepos = async () => {
 
 const GitHubStars = () => {
 	const [ repos, setRepos ] = useState([])
-
 	const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000)).toISOString()
+
 	useEffect(() => {
 		async function get() {
 			const res = await getRepos()
